@@ -15,7 +15,7 @@
     = csrf_meta_tags
     = yield :head
     = render 'layouts/airbrake'
-  %body{class: "controller__#{controller_name} action__#{action_name}"}
+  %body{class: "controller__#{controller_name}_action__#{action_name}"}
     - if !current_page?(root_url)
       = render 'layouts/navigation'
     .container
