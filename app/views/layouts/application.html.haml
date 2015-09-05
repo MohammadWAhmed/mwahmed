@@ -3,7 +3,9 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
-    %title= content_for?(:title) ? yield(:title) : I18n.t('brand.name')
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic"}
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "http://fonts.googleapis.com/css?family=Montserrat:400,700"}
+    %title= content_for?(:title) ? yield(:title) : "MWAhmed"
     %meta{content: (content_for?(:description) ? yield(:description) : I18n.t('brand.name')), name: 'description'}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     /[if lt IE 9]
@@ -14,7 +16,8 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name} action__#{action_name}"}
-    = render 'layouts/navigation'
+    - if !current_page?(root_url)
+      = render 'layouts/navigation'
     .container
       .errors__container
         = render 'layouts/messages'
