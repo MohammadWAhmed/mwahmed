@@ -29,7 +29,7 @@
       .container
         .row
           .col-md-8.col-md-offset-2
-            %h1.brand-heading=@img_urls[0]
+            %h1.brand-heading Welcome
             %p.intro-text
               A free, responsive, one page Bootstrap theme.
               %br Created by Start Bootstrap.
@@ -55,11 +55,38 @@
   / Download Section
   %section#photography.content-section.text-center
     .photography-section
-      .container
-        .col-lg-8.col-lg-offset-2
-          %h2 Download Grayscale
-          %p You can download Grayscale for free on the preview page at Start Bootstrap.
-          %a.btn.btn-default.btn-lg{:href => "http://startbootstrap.com/template-overviews/grayscale/"} Visit Download Page
+      #carousel500px.carousel.slide
+        / Indicators
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel500px"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel500px"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel500px"}
+        / Wrapper for slides
+
+        .carousel-inner
+          - j = 0
+          - @images.each do |i, index|
+            - if j==0 
+              - j = 1
+              .item.active
+                %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
+                  .carousel-caption
+                    %p #{i['name']}
+            - else
+              .item 
+                %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
+                  .carousel-caption
+                    %p #{i['name']}              
+
+
+        / Controls
+        %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel500px"}
+          %span.icon-prev
+        %a.right.carousel-control{"data-slide" => "next", :href => "#carousel500px"}
+          %span.icon-next    
+
+        
+          
   / Contact Section
   %section#contact.container.content-section.text-center
     .row

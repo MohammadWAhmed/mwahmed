@@ -416,3 +416,14 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: rgba(255,255,255,.2);
 }
+
+.lazy-load {
+    background: url("http://www.mozart.it/images/preloader.gif") center center no-repeat;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+    width: auto;
+    height:80%;
+    max-height: 80%;
+}

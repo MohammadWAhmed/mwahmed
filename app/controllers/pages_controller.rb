@@ -22,13 +22,21 @@ class PagesController < ApplicationController
   end
 
   def home
-    @img_urls = []
+    @images = []
     _query_500px = 'photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted'
     _response = JSON.parse(F00px.get(_query_500px).body)
     _photos = _response["photos"]
     
     _photos.each do |p|
-      @img_urls << p["image_url"]
+      p_id = p["id"]
+      _image_hash = {}
+      _image_hash["name"] = p["name"]
+      _image_hash["url"] = p["image_url"]
+      _image_hash["width"] = p["width"]
+      _image_hash["height"] = p["height"]
+      _image_hash["viewed"] = p["times_viewed"]
+      _image_hash["date"] = p["taken_at"]
+      @images << _image_hash
     end
     
   end
