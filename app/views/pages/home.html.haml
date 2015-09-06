@@ -69,7 +69,7 @@
                     %p #{i['name']}
             - else
               .item 
-                %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
+                %img{:alt => "#{i['name']}", "data-lazy-load-src" => "#{i['url']}"}
                   .carousel-caption
                     %p #{i['name']}              
 
