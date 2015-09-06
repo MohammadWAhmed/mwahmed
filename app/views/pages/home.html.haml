@@ -18,7 +18,7 @@
           %li
             %a.page-scroll{:href => "#about"} About
           %li
-            %a.page-scroll{:href => "#download"} Resume
+            %a.page-scroll{:href => "#photography"} Photography
           %li
             %a.page-scroll{:href => "#contact"} Contact
       / /.navbar-collapse
@@ -29,7 +29,7 @@
       .container
         .row
           .col-md-8.col-md-offset-2
-            %h1.brand-heading Welcome
+            %h1.brand-heading=@user_id_500px
             %p.intro-text
               A free, responsive, one page Bootstrap theme.
               %br Created by Start Bootstrap.
@@ -53,8 +53,8 @@
             %a{:href => "http://snazzymaps.com/"} Snazzy Maps
         %p Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.
   / Download Section
-  %section#download.content-section.text-center
-    .download-section
+  %section#photography.content-section.text-center
+    .photography-section
       .container
         .col-lg-8.col-lg-offset-2
           %h2 Download Grayscale

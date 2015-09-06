@@ -20,6 +20,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def home
+    @user_id_500px = 7856483
+  end
+
   def error
     redirect_to root_path if flash.empty?
   end
