@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
+  require 'json'
 
   # Preview html email template
   def email
@@ -21,7 +22,15 @@ class PagesController < ApplicationController
   end
 
   def home
-    @user_id_500px = 7856483
+    @img_urls = []
+    _query_500px = 'photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted'
+    _response = JSON.parse(F00px.get(_query_500px).body)
+    _photos = _response["photos"]
+    
+    _photos.each do |p|
+      @img_urls << p["image_url"]
+    end
+    
   end
 
   def error
