@@ -54,18 +54,13 @@
         %p Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.
   / Download Section
   %section#photography.content-section.text-center
-    .photography-section
+    .photography-section.container-fluid.hero
       #carousel500px.carousel.slide
-        / Indicators
-        %ol.carousel-indicators
-          %li.active{"data-slide-to" => "0", "data-target" => "#carousel500px"}
-          %li{"data-slide-to" => "1", "data-target" => "#carousel500px"}
-          %li{"data-slide-to" => "2", "data-target" => "#carousel500px"}
         / Wrapper for slides
 
         .carousel-inner
           - j = 0
-          - @images.each do |i, index|
+          - @images.each do |i|
             - if j==0 
               - j = 1
               .item.active

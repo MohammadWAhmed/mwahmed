@@ -27,16 +27,18 @@ class PagesController < ApplicationController
     _response = JSON.parse(F00px.get(_query_500px).body)
     _photos = _response["photos"]
     
-    _photos.each do |p|
-      p_id = p["id"]
-      _image_hash = {}
-      _image_hash["name"] = p["name"]
-      _image_hash["url"] = p["image_url"]
-      _image_hash["width"] = p["width"]
-      _image_hash["height"] = p["height"]
-      _image_hash["viewed"] = p["times_viewed"]
-      _image_hash["date"] = p["taken_at"]
-      @images << _image_hash
+    if !_photos.nil?
+      _photos.each do |p|
+        p_id = p["id"]
+        _image_hash = {}
+        _image_hash["name"] = p["name"]
+        _image_hash["url"] = p["image_url"]
+        _image_hash["width"] = p["width"]
+        _image_hash["height"] = p["height"]
+        _image_hash["viewed"] = p["times_viewed"]
+        _image_hash["date"] = p["taken_at"]
+        @images << _image_hash
+      end
     end
     
   end
