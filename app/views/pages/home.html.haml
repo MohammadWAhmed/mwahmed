@@ -5,7 +5,7 @@
       .navbar-header
         %button.navbar-toggle{"data-target" => ".navbar-main-collapse", "data-toggle" => "collapse", :type => "button"}
           %i.fa.fa-bars
-        %a.navbar-brand.page-scroll{:href => "#page-top"}
+        %a.navbar-brand.page-scroll{:href => "/"}
           %i.fa.fa-play-circle
           %span.light MWAhmed
           
@@ -20,7 +20,7 @@
           %li
             %a.page-scroll{:href => "#photography"} Photography
           %li
-            %a.page-scroll{:href => "#contact"} Contact
+            %a.page-scroll{:href => "#contactme"} Contact
       / /.navbar-collapse
     / /.container
   / Intro Header
@@ -31,30 +31,26 @@
           .col-md-8.col-md-offset-2
             %h1.brand-heading Welcome
             %p.intro-text
-              A free, responsive, one page Bootstrap theme.
-              %br Created by Start Bootstrap.
+              
+              %br 
+              %br
+              %br 
+              
             %a.btn.btn-circle.page-scroll{:href => "#about"}
               %i.fa.fa-angle-double-down.animated
   / About Section
   %section#about.container.content-section.text-center
     .row
       .col-lg-8.col-lg-offset-2
-        %h2 About Grayscale
+        %h2 About Me
         %p
-          Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on
-          = succeed "." do
-            %a{:href => "http://startbootstrap.com/template-overviews/grayscale/"} the preview page
-          The theme is open source, and you can use it for any purpose, personal or commercial.
-        %p
-          This theme features stock photos by
-          %a{:href => "http://gratisography.com/"} Gratisography
-          along with a custom Google Maps skin courtesy of
-          = succeed "." do
-            %a{:href => "http://snazzymaps.com/"} Snazzy Maps
-        %p Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.
+          I am a software developer from Toronto, Canada area and an amateur photographer in my spare time.
+        
   / Download Section
   %section#photography.content-section.text-center
     .photography-section.container-fluid.hero
+      %h2 Photography
+      %h5 Collection from my 500px account
       #carousel500px.carousel.slide.carousel-fade
         / Wrapper for slides
 
@@ -67,14 +63,18 @@
                 %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
                   .carousel-caption
                     %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
-                    %p Views: #{i['viewed']} |
+                    %p Views: #{i['viewed']}| 
+                    - if !i['date'].nil? 
+                      %p #{i['date'].to_date.strftime("%m/%d/%Y")}|
                     %p &copy; MWAhmed
             - else
               .item 
                 %img{:alt => "#{i['name']}", "data-lazy-load-src" => "#{i['url']}"}
                   .carousel-caption
                     %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
-                    %p Views: #{i['viewed']} |
+                    %p Views: #{i['viewed']}| 
+                    - if !i['date'].nil? 
+                      %p #{i['date'].to_date.strftime("%m/%d/%Y")}|
                     %p &copy; MWAhmed
 
 
@@ -87,29 +87,18 @@
         
           
   / Contact Section
-  %section#contact.container.content-section.text-center
-    .row
+  %section#contactme.container.content-section.text-center
+    .contact-section.row
       .col-lg-8.col-lg-offset-2
-        %h2 Contact Start Bootstrap
-        %p Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!
-        %p
-          %a{:href => "mailto:feedback@startbootstrap.com"} feedback@startbootstrap.com
+        %h2 Contact
+        %p 
+          %a{:href => "mailto:wasiuddin.ahmed@hotmail.com"} wasiuddin.ahmed@hotmail.com
         %ul.list-inline.banner-social-buttons
           %li
-            %a.btn.btn-default.btn-lg{:href => "https://twitter.com/SBootstrap"}
-              %i.fa.fa-twitter.fa-fw
-              %span.network-name Twitter
-          %li
-            %a.btn.btn-default.btn-lg{:href => "https://github.com/IronSummitMedia/startbootstrap"}
+            %a.btn.btn-default.btn-lg{:href => "https://github.com/MohammadWAhmed", :target => "blank"}
               %i.fa.fa-github.fa-fw
               %span.network-name Github
           %li
-            %a.btn.btn-default.btn-lg{:href => "https://plus.google.com/+Startbootstrap/posts"}
-              %i.fa.fa-google-plus.fa-fw
-              %span.network-name Google+
-  / Map Section
-  #map
-  / Footer
-  %footer
-    .container.text-center
-      %p Copyright &copy; Your Website 2014
+            %a.btn.btn-default.btn-lg{:href => "https://www.linkedin.com/in/mohahmed", :target => "blank"}
+              %i.fa.fa-linked-in.fa-fw
+              %span.network-name LinkedIn

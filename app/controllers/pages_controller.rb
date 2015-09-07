@@ -36,7 +36,7 @@ class PagesController < ApplicationController
         _image_hash["width"] = p["width"]
         _image_hash["height"] = p["height"]
         _image_hash["viewed"] = p["times_viewed"]
-        _image_hash["date"] = p["taken_at"]
+        _image_hash["date"] = p["taken_at"] 
         _image_hash["500px_url"] = "http://500px.com" + p["url"]
         
         @images << _image_hash

@@ -329,7 +329,7 @@ a:focus {
         padding-top: 250px;
     }
 
-    .download-section {
+    .photography-section {
         padding: 100px 0;
     }
 
@@ -425,6 +425,7 @@ body {
     margin: 0 auto;
     position: relative;
     height:500px;
+    width: auto;
 }
 
 
@@ -481,3 +482,11 @@ body {
  a {
     color:#fff;
  }
+
+#photography {
+    padding:0; margin:0;
+}
+
+#contactme {
+    padding:0; margin:0;
+}
