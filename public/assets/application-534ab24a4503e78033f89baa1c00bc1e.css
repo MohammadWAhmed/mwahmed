@@ -8666,14 +8666,14 @@ a:focus {
   }
 }
 /* line 188, /Users/wasiahmed/dev/rails/mwahmed/app/assets/stylesheets/application.scss */
-.intro {
+.controller__pages_action__home {
   display: table;
   width: 100%;
   height: auto;
   padding: 100px 0;
   text-align: center;
   color: #fff;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background: url(/assets/landing.jpg) no-repeat bottom center scroll;
   background-color: #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8929,4 +8929,16 @@ img::-moz-selection {
 /* line 416, /Users/wasiahmed/dev/rails/mwahmed/app/assets/stylesheets/application.scss */
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+/* line 420, /Users/wasiahmed/dev/rails/mwahmed/app/assets/stylesheets/application.scss */
+.lazy-load {
+  background: url("http://www.mozart.it/images/preloader.gif") center center no-repeat;
+}
+
+/* line 424, /Users/wasiahmed/dev/rails/mwahmed/app/assets/stylesheets/application.scss */
+.carousel-inner > .item > img {
+  margin: 0 auto;
+  position: relative;
+  height: 500px;
 }
