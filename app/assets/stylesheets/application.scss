@@ -426,3 +426,58 @@ body {
     position: relative;
     height:500px;
 }
+
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+        
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
+
+.carousel-caption > * {
+  margin: 0;
+  padding: 0;
+}
+
+ .carousel-caption {
+    padding:0; margin:0;
+    text-align:left;
+    display:inline-block;
+    width: auto;
+    background:rgba(0,0,0,0.45);
+ }
+
+.carousel-caption > p {
+    display:inline-block;
+    font-size:10px;
+ }
+
+ a {
+    color:#fff;
+ }

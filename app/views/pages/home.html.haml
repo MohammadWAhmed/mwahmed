@@ -55,7 +55,7 @@
   / Download Section
   %section#photography.content-section.text-center
     .photography-section.container-fluid.hero
-      #carousel500px.carousel.slide
+      #carousel500px.carousel.slide.carousel-fade
         / Wrapper for slides
 
         .carousel-inner
@@ -66,12 +66,16 @@
               .item.active
                 %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
                   .carousel-caption
-                    %p #{i['name']}
+                    %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
+                    %p Views: #{i['viewed']} |
+                    %p &copy; MWAhmed
             - else
               .item 
                 %img{:alt => "#{i['name']}", "data-lazy-load-src" => "#{i['url']}"}
                   .carousel-caption
-                    %p #{i['name']}              
+                    %h3 #{i['name']} 
+                    %p Views: #{i['viewed']} |
+                    %p &copy; MWAhmed
 
 
         / Controls
