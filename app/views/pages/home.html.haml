@@ -73,7 +73,7 @@
               .item 
                 %img{:alt => "#{i['name']}", "data-lazy-load-src" => "#{i['url']}"}
                   .carousel-caption
-                    %h3 #{i['name']} 
+                    %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
                     %p Views: #{i['viewed']} |
                     %p &copy; MWAhmed
 
