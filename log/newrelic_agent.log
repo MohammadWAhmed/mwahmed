@@ -745,3 +745,51 @@
 [09/06/15 20:00:45 -0400 Wasis-MacBook-Pro.local (47072)] INFO : Installing Sinatra instrumentation
 [09/06/15 20:01:04 -0400 Wasis-MacBook-Pro.local (47072)] ERROR : Invalid license key, please contact support@newrelic.com
 [09/06/15 20:01:04 -0400 Wasis-MacBook-Pro.local (47072)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Starting the New Relic agent in "development" environment.
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Reading configuration from config/newrelic.yml (/Users/wasiahmed/dev/rails/mwahmed)
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] ERROR : Failed to read or parse configuration file at config/newrelic.yml
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] ERROR : Psych::SyntaxError: (<unknown>): mapping values are not allowed in this context at line 40 column 32
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Environment: development
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Dispatcher: webrick
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Application: development
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'.
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing ActiveRecord 4 instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Dalli Memcache instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Net instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing deferred Rack instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Rack::Builder middleware instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Rails 3+ middleware instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Sidekiq instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Rails 4 Controller instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Rails 4 view instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Rails 4 Error instrumentation
+[09/06/15 20:09:12 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Finished instrumentation
+[09/06/15 20:09:13 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Doing deferred dependency-detection before Rack startup
+[09/06/15 20:09:13 -0400 Wasis-MacBook-Pro.local (48009)] INFO : Installing Sinatra instrumentation
+[09/06/15 20:09:16 -0400 Wasis-MacBook-Pro.local (48009)] ERROR : Invalid license key, please contact support@newrelic.com
+[09/06/15 20:09:16 -0400 Wasis-MacBook-Pro.local (48009)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Starting the New Relic agent in "development" environment.
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Reading configuration from config/newrelic.yml (/Users/wasiahmed/dev/rails/mwahmed)
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] ERROR : Failed to read or parse configuration file at config/newrelic.yml
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] ERROR : Psych::SyntaxError: (<unknown>): mapping values are not allowed in this context at line 40 column 32
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Environment: development
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Dispatcher: webrick
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Application: development
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'.
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing ActiveRecord 4 instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Dalli Memcache instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Net instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing deferred Rack instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Rack::Builder middleware instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Rails 3+ middleware instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Sidekiq instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Rails 4 Controller instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Rails 4 view instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Rails 4 Error instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Finished instrumentation
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Doing deferred dependency-detection before Rack startup
+[09/06/15 20:11:22 -0400 Wasis-MacBook-Pro.local (48237)] INFO : Installing Sinatra instrumentation
+[09/06/15 20:11:27 -0400 Wasis-MacBook-Pro.local (48237)] ERROR : Invalid license key, please contact support@newrelic.com
+[09/06/15 20:11:27 -0400 Wasis-MacBook-Pro.local (48237)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.

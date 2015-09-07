@@ -13,7 +13,6 @@
 #= require jquery_2
 #= require jquery_ujs
 #= require bootstrap
-#= require grayscale
 #= require jquery.turbolinks
 #= require turbolinks
 #= require nprogress
