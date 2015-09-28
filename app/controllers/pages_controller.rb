@@ -22,6 +22,11 @@ class PagesController < ApplicationController
   end
 
   def home
+
+    
+  end
+
+  def photography
     @images = []
     _query_500px = 'photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted'
     _response = JSON.parse(F00px.get(_query_500px).body)
@@ -42,7 +47,7 @@ class PagesController < ApplicationController
         @images << _image_hash
       end
     end
-    
+
   end
 
   def error

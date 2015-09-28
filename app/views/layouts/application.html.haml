@@ -16,16 +16,12 @@
     = yield :head
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name}_action__#{action_name}"}
-    - if !current_page?(root_url)
-      = render 'layouts/navigation'
+    = render 'layouts/navigation'
     .container
       .errors__container
         = render 'layouts/messages'
       = yield
       %footer.page__footer
-        - if content_for? :footer
-          = yield :footer
-        - else
-          = render 'layouts/footer'
+        = render 'layouts/footer'
     = render 'layouts/analytics'
     = render 'layouts/javascripts'
