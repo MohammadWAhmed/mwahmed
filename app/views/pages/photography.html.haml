@@ -7,15 +7,13 @@
       - if j==0 
         - j = 1
         .item.active
-          %img{:alt => "#{i['name']}", :src => "#{i['url']}"}
+          %img{:src => "#{i['url']}"}
             .carousel-caption
-              %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
               %p &copy; MWAhmed
       - else
         .item 
-          %img{:alt => "#{i['name']}", "data-lazy-load-src" => "#{i['url']}"}
+          %img{"data-lazy-load-src" => "#{i['url']}"}
             .carousel-caption
-              %h3= link_to("#{i['name']}", "#{i['500px_url']}", "target" => "_blank") 
               %p &copy; MWAhmed
 
 
