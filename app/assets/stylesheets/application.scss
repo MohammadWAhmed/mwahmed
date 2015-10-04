@@ -8,7 +8,9 @@
 // Core
 @import "variables";
 @import "bootstrap";
-@import "icons_social";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "social-buttons";
 @import "auth";
 @import "avatar";
 @import "cards";
@@ -90,10 +92,6 @@ body {
   text-shadow: 2px 2px #000;
   color: #FFF;
   font-size: 20px;
-}
-
-a {
-  color:#fff;
 }
 
 ul.nav.navbar-nav.navbar-right {
