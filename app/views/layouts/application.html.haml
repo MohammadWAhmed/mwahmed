@@ -15,6 +15,7 @@
     = render 'layouts/airbrake'
   %body{class: "controller__#{controller_name}_action__#{action_name}"}
     = render 'layouts/navigation'
+    = render 'layouts/image_protection'
     .container
       .errors__container
         = render 'layouts/messages'
