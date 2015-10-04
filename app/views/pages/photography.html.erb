@@ -14,7 +14,7 @@ function initalImages() {
 
 function displayNextImages() {
   index = index+1;
-  if (index <= totalIndexes) {
+  if (index < totalIndexes) {
     var html_string = json[index.toString()];
     $("#img-row").empty();
     $("#img-row").html(html_string);    
@@ -39,14 +39,25 @@ function displayPrevImages() {
 </script>
 
 <div id="gallery" class="container-fluid">
+    <div class="row pull-right">
+      <button class="btn btn-large prv_btn" onclick="displayPrevImages();return false;">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <button class="btn btn-large nxt_btn" onclick="displayNextImages();return false;">
+        <i class="fa fa-arrow-right"></i>
+      </button>
+      <br><br>
+    </div>
     <div id="img-row" class="row">
     </div>
-    <hr>
-    <div class="row">
-      <button id="prv_btn" class="btn btn-large" onclick="displayPrevImages();return false;">Previous</button>
-      <button id="nxt_btn" class="btn btn-large" onclick="displayNextImages();return false;">Next</button>
-    </div>
-    <hr>    
+    <div class="row pull-right">
+      <button class="btn btn-large prv_btn" onclick="displayPrevImages();return false;">
+        <i class="fa fa-arrow-left"></i>
+      </button>
+      <button class="btn btn-large nxt_btn" onclick="displayNextImages();return false;">
+        <i class="fa fa-arrow-right"></i>
+      </button>
+    </div>  
 </div>
 <div class="modal" id="myModal" role="dialog">
   <div class="modal-dialog">
