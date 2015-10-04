@@ -1,0 +1,72 @@
+<script type="text/javascript"> 
+var index = 0;
+var totalIndexes = parseInt("<%=j @html_strings.size.to_s%>");
+var jsonString = "<%=j @html_strings_json %>";
+var json = JSON.parse(jsonString);
+
+var html_string = json[index.toString()];
+initalImages();
+
+function initalImages() {
+  $("#img-row").html(html_string);
+  return false;
+}
+
+function displayNextImages() {
+  index = index+1;
+  if (index <= totalIndexes) {
+    var html_string = json[index.toString()];
+    $("#img-row").empty();
+    $("#img-row").html(html_string);    
+  } else {
+    index = totalIndexes;
+  }
+
+}
+
+function displayPrevImages() {
+  index = index-1;
+  if (index > -1) {
+    var html_string = json[index.toString()];
+    $("#img-row").empty();
+    $("#img-row").html(html_string);    
+  } else {
+    index = 0;
+  }
+
+}
+
+</script>
+
+<div id="gallery" class="container-fluid">
+    <div id="img-row" class="row">
+    </div>
+    <hr>
+    <div class="row">
+      <button id="prv_btn" class="btn btn-large" onclick="displayPrevImages();return false;">Previous</button>
+      <button id="nxt_btn" class="btn btn-large" onclick="displayNextImages();return false;">Next</button>
+    </div>
+    <hr>    
+</div>
+<div class="modal" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  <div class="modal-content">
+	<div class="modal-header">
+		<button class="close" type="button" data-dismiss="modal">×</button>
+		<h3 class="modal-title"></h3>
+	</div>
+	<div class="modal-body">
+		<div id="modalCarousel" class="carousel">
+          <div class="carousel-inner"></div>
+          <a class="carousel-control left" href="#modaCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+          <a class="carousel-control right" href="#modalCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" data-dismiss="modal">Close</button>
+	</div>
+   </div>
+  </div>
+</div>
+
+

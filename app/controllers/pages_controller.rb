@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
   require 'json'
-
+  TOTAL_IMAGES = 7
   # Preview html email template
   def email
     tpl = (params[:layout] || 'hero').to_sym
@@ -36,18 +36,24 @@ class PagesController < ApplicationController
       _photos.each do |p|
         p_id = p["id"]
         _image_hash = {}
-        _image_hash["name"] = p["name"]
         _image_hash["url"] = p["image_url"]
-        _image_hash["width"] = p["width"]
-        _image_hash["height"] = p["height"]
-        _image_hash["viewed"] = p["times_viewed"]
-        _image_hash["date"] = p["taken_at"] 
-        _image_hash["500px_url"] = "http://500px.com" + p["url"]
-        
         @images << _image_hash
       end
     end
-
+    @image_slices = @images.each_slice(TOTAL_IMAGES).to_a
+    @html_strings = {}
+    _index = 0;
+    @image_slices.each do |slice|
+      _html_string = ""
+      slice.each do |s|
+        _html_string += "<div class='col-lg-3 col-lg-3 col-lg-4'><a 
+        href='#'><img class='thumbnail img-responsive' src='#{s['url']}'></a></div>"
+      end
+      @html_strings[_index] = _html_string
+      _index += 1
+      @html_strings_json = @html_strings.to_json.to_s.gsub('/', '\/').html_safe
+      
+    end
   end
 
   def error
