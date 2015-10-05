@@ -47,7 +47,8 @@ class PagesController < ApplicationController
       _html_string = ""
       slice.each do |s|
         _html_string += "<div class='col-lg-3 col-lg-3 col-lg-4'><a 
-        href='#'><img class='thumbnail img-responsive' src='#{s['url']}'></a></div>"
+        href='#'><img class='thumbnail img-responsive' src='#{s['url']}'
+        onclick='imageModal(this);return false;'></a></div>"
       end
       @html_strings[_index] = _html_string
       _index += 1
