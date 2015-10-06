@@ -1,46 +1,5 @@
 <script type="text/javascript"> 
-var index = 0;
-var totalIndexes = parseInt("<%=j @html_strings.size.to_s%>");
-var jsonString = "<%=j @html_strings_json %>";
-var json = JSON.parse(jsonString);
-
-var html_string = json[index.toString()];
-initalImages();
-
-function initalImages() {
-  $("#img-row").html(html_string);
-  return false;
-}
-
-function displayNextImages() {
-  index = index+1;
-  if (index < totalIndexes) {
-    var html_string = json[index.toString()];
-    $("#img-row").empty();
-    $("#img-row").html(html_string);    
-  } else {
-    index = totalIndexes-1;
-  }
-
-}
-
-function displayPrevImages() {
-  index = index-1;
-  if (index > -1) {
-    var html_string = json[index.toString()];
-    $("#img-row").empty();
-    $("#img-row").html(html_string);    
-  } else {
-    index = 0;
-  }
-
-}
-
-function imageModal(el) {
-  $('.imagePreview').attr('src', el.src);
-  $('#imgModal').modal('show');
-};
-
+var _0xd236=["\x70\x61\x72\x73\x65","\x68\x74\x6D\x6C","\x23\x69\x6D\x67\x2D\x72\x6F\x77","\x65\x6D\x70\x74\x79","\x73\x72\x63","\x61\x74\x74\x72","\x2E\x69\x6D\x61\x67\x65\x50\x72\x65\x76\x69\x65\x77","\x73\x68\x6F\x77","\x6D\x6F\x64\x61\x6C","\x23\x69\x6D\x67\x4D\x6F\x64\x61\x6C"];var index=0;var totalIndexes=parseInt('<%=j @html_strings.size.to_s%>');var jsonString='<%=j @html_strings_json %>';var json=JSON[_0xd236[0]](jsonString);var html_string=json[index.toString()];initalImages();function initalImages(){$(_0xd236[2])[_0xd236[1]](html_string);return false;}function displayNextImages(){index=index+1;if(index<totalIndexes){var html_string=json[index.toString()];$(_0xd236[2])[_0xd236[3]]();$(_0xd236[2])[_0xd236[1]](html_string);}else {index=totalIndexes-1};}function displayPrevImages(){index=index-1;if(index> -1){var html_string=json[index.toString()];$(_0xd236[2])[_0xd236[3]]();$(_0xd236[2])[_0xd236[1]](html_string);}else {index=0};}function imageModal(_0xba21xa){$(_0xd236[6])[_0xd236[5]](_0xd236[4],_0xba21xa[_0xd236[4]]);$(_0xd236[9])[_0xd236[8]](_0xd236[7]);}
 </script>
 
 <div id="gallery" class="container-fluid">
