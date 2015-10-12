@@ -46,7 +46,7 @@ class PagesController < ApplicationController
     @image_slices.each do |slice|
       _html_string = ""
       slice.each do |s|
-        _html_string += "<div class='col-lg-3 col-lg-3 col-lg-4'><a 
+        _html_string += "<div class='col-lg-5 col-lg-5 col-lg-5'><a 
         href='#'><img class='thumbnail img-responsive' src='#{s['url']}'
         onclick='imageModal(this);return false;'></a></div>"
       end
