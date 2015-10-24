@@ -1,3 +1,5 @@
+:javascript
+  (function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)
 !!!
 %html.no-js{lang: 'en'}
   %head
@@ -5,11 +7,11 @@
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
     %title= content_for?(:title) ? yield(:title) : "MWAhmed"
     %meta{content: (content_for?(:description) ? yield(:description) : I18n.t('brand.name')), name: 'description'}
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false
     /[if lt IE 9]
-      = javascript_include_tag 'ie', 'data-turbolinks-track' => true
-    = javascript_include_tag 'head', 'data-turbolinks-track' => true
-    = headjs_include_tag 'application', 'data-turbolinks-track' => true
+      = javascript_include_tag 'ie', 'data-turbolinks-track' => false
+    = javascript_include_tag 'head', 'data-turbolinks-track' => false
+    = headjs_include_tag 'application', 'data-turbolinks-track' => false
     = csrf_meta_tags
     = yield :head
     = render 'layouts/airbrake'
