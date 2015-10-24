@@ -40,21 +40,6 @@ class PagesController < ApplicationController
         @images << _image_hash
       end
     end
-    @image_slices = @images.each_slice(TOTAL_IMAGES).to_a
-    @html_strings = {}
-    _index = 0;
-    @image_slices.each do |slice|
-      _html_string = ""
-      slice.each do |s|
-        _html_string += "<div class='col-lg-5 col-lg-5 col-lg-5'><a 
-        href='#'><img class='thumbnail img-responsive' src='#{s['url']}'
-        onclick='imageModal(this);return false;'></a></div>"
-      end
-      @html_strings[_index] = _html_string
-      _index += 1
-      @html_strings_json = @html_strings.to_json.to_s.gsub('/', '\/').html_safe
-      
-    end
   end
 
   def error
