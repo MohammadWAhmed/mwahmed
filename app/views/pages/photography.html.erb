@@ -3,13 +3,23 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.0/css/justifiedGallery.min.css">
 
 <script type="text/javascript">
-  $("#mygallery").justifiedGallery();
+$(document).ready(function() {
+  $("#gallery").justifiedGallery({
+        'usedSuffix': 'lt240',
+        'justifyLastRow': false,
+        'rowHeight': 120,
+        'fixedHeight': false,
+        'captions': false,
+        'margins': 1
+    }).magnificPopup({type:'image', delegate: '.gallery-image'});
+});
+
 </script>
 
-<div id="mygallery" >
+<div id="gallery" >
   <% @images.each do |img| %>
     <a href=<%=img["url"] %>>
-        <img src=<%=img["url"] %>/>
+        <img class="galler-image" src=<%=img["url"] %>/>
     </a>
   <% end %> 
 </div>

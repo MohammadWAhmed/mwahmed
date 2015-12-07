@@ -414,6 +414,5 @@ DEPENDENCIES
   spring-commands-rspec
   terminal-notifier
   terminal-notifier-guard
-  turbolinks
   uglifier
   unicorn
