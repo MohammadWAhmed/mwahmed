@@ -28,19 +28,35 @@ class PagesController < ApplicationController
 
   def photography
     @images = []
-    _query_500px = 'photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted'
-    _response = JSON.parse(F00px.get(_query_500px).body)
-    _photos = _response["photos"]
+    curr_page = 1
+    @query = queryBuilder(curr_page)
+    total_pages = callF00px(@images, @query)
+    curr_page += 1
+    while(curr_page <= total_pages)
+      @query = queryBuilder(curr_page)
+      total_pages = callF00px(@images, @query)
+      curr_page += 1
+    end
+  end
+
+  def queryBuilder(page)
+    "photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted&page=" + page.to_s
+  end
+
+  def callF00px(images, query)
+    response = JSON.parse(F00px.get(query).body)
+    photos = response["photos"]
     
-    if !_photos.nil?
-      _photos.each do |p|
-        p_id = p["id"]
-        _image_hash = {}
-        _image_hash["url"] = p["image_url"]
-        _image_hash["title"] = p["name"]
-        @images << _image_hash
+    if !photos.nil?
+      photos.each do |p|
+        imageHash = {}
+        imageHash["url"] = p["image_url"]
+        imageHash["title"] = p["name"]
+        @images << imageHash
       end
     end
+  
+    return response["total_pages"]
   end
 
   def error
