@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_authorization_check
   skip_before_action :authenticate_user!
   require 'json'
-  TOTAL_IMAGES = 7
+  
   # Preview html email template
   def email
     tpl = (params[:layout] || 'hero').to_sym
@@ -37,6 +37,7 @@ class PagesController < ApplicationController
         p_id = p["id"]
         _image_hash = {}
         _image_hash["url"] = p["image_url"]
+        _image_hash["title"] = p["name"]
         @images << _image_hash
       end
     end

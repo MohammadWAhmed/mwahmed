@@ -16,10 +16,24 @@ $(document).ready(function() {
   $('#gallery').each(function() { // the containers for all your galleries
     $(this).magnificPopup({
         removalDelay: 300,
+        mainClass: 'mfp-with-zoom mfp-img-mobile',
+        image: {
+          verticalFit: true,
+          titleSrc: function(item) {
+            return item.el.attr('title');
+          }
+        },
         delegate: 'a', // the selector for gallery item
         type: 'image',
         gallery: {
           enabled:true
+        },
+        zoom: {
+          enabled: true,
+          duration: 300, // don't foget to change the duration also in CSS
+          opener: function(element) {
+            return element.find('img');
+          }
         }
     });
   });
@@ -29,7 +43,7 @@ $(document).ready(function() {
 
 <div id="gallery" >
   <% @images.each do |img| %>
-    <a href=<%=img["url"] %>>
+    <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
         <img class="galler-image" src=<%=img["url"] %>/>
     </a>
   <% end %> 
