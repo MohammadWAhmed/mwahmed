@@ -11,7 +11,18 @@ $(document).ready(function() {
         'fixedHeight': false,
         'captions': false,
         'margins': 1
-    }).magnificPopup({type:'image', delegate: '.gallery-image'});
+    });
+
+  $('#gallery').each(function() { // the containers for all your galleries
+    $(this).magnificPopup({
+        removalDelay: 300,
+        delegate: 'a', // the selector for gallery item
+        type: 'image',
+        gallery: {
+          enabled:true
+        }
+    });
+  });
 });
 
 </script>

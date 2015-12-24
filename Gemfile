@@ -81,6 +81,8 @@ gem 'settingslogic'
 # 500px integration
 gem 'f00px'
 
+gem 'magnific-popup-rails'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails

@@ -14,6 +14,7 @@
 #= require jquery_2
 #= require jquery_ujs
 #= require bootstrap
+#= require magnific-popup
 #= require nprogress
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
