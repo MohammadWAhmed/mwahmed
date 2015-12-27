@@ -39,6 +39,10 @@ class PagesController < ApplicationController
     end
   end
 
+  def map
+    @images = []
+  end
+
   def queryBuilder(page)
     "photos?feature=user&user_id=7856483&sort=rating&image_size=4&include_store=store_download&include_states=voted&page=" + page.to_s
   end

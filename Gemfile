@@ -81,7 +81,11 @@ gem 'settingslogic'
 # 500px integration
 gem 'f00px'
 
+# Image popup slideshow
 gem 'magnific-popup-rails'
+
+# World map
+gem 'jvectormap-rails', '~> 1.0.0'
 
 group :development do
   # Docs
