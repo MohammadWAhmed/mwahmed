@@ -1,59 +1,101 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.0/jquery.justifiedGallery.min.js">
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.0/css/justifiedGallery.min.css">
+
 <div id="world-map"></div>
 <script> 
-   $(document).ready(function() {
-     
-     $('#world-map').empty();
-     var modal_options = {
-       "backdrop" : "static"
-     }
-     var markers =  [
-         {latLng: [41.90, 12.45], name: 'Vatican City'},
-         {latLng: [43.73, 7.41], name: 'Monaco'},
-         {latLng: [-0.52, 166.93], name: 'Nauru'},
-         {latLng: [-8.51, 179.21], name: 'Tuvalu'},
-         {latLng: [43.93, 12.46], name: 'San Marino'},
-         {latLng: [47.14, 9.52], name: 'Liechtenstein'},
-         {latLng: [7.11, 171.06], name: 'Marshall Islands'},
-         {latLng: [17.3, -62.73], name: 'Saint Kitts and Nevis'},
-         {latLng: [3.2, 73.22], name: 'Maldives'},
-         {latLng: [35.88, 14.5], name: 'Malta'},
-         {latLng: [12.05, -61.75], name: 'Grenada'},
-         {latLng: [13.16, -61.23], name: 'Saint Vincent and the Grenadines'},
-         {latLng: [13.16, -59.55], name: 'Barbados'},
-         {latLng: [17.11, -61.85], name: 'Antigua and Barbuda'},
-         {latLng: [-4.61, 55.45], name: 'Seychelles'},
-         {latLng: [7.35, 134.46], name: 'Palau'},
-         {latLng: [42.5, 1.51], name: 'Andorra'},
-         {latLng: [14.01, -60.98], name: 'Saint Lucia'},
-         {latLng: [6.91, 158.18], name: 'Federated States of Micronesia'},
-         {latLng: [1.3, 103.8], name: 'Singapore'},
-         {latLng: [1.46, 173.03], name: 'Kiribati'},
-         {latLng: [-21.13, -175.2], name: 'Tonga'},
-         {latLng: [15.3, -61.38], name: 'Dominica'},
-         {latLng: [-20.2, 57.5], name: 'Mauritius'},
-         {latLng: [26.02, 50.55], name: 'Bahrain'},
-         {latLng: [0.33, 6.73], name: 'São Tomé and Príncipe'}
-       ]
-
-     $('#world-map').vectorMap({
-       map: 'world_mill_en',
-       scaleColors: ['#C8EEFF', '#0071A4'],
-       normalizeFunction: 'polynomial',
-       hoverOpacity: 0.7,
-       hoverColor: false,
-       markerStyle: {
-         initial: {
-           fill: '#9172EC',
-           stroke: '#383f47'
-         }
-       },
-       backgroundColor: '#383f47',
-       markers: markers,
-       onMarkerClick: function (e, index) {
-          $('#title').html(markers[index].name);
-          $('#modal').modal(modal_options);
+   jQuery(document).ready(function() {
+       function generateImgHtml(data) {
+           var html = "";
+           data.forEach(function(item) {
+               html += "<a href=" + item[0] + " title= " + "\'" + item[1] + "\'" + " <img class='galler-image' src=" + item[0] + "/> </a>"
+           });
+           return html;
        }
-     });
+
+       jQuery('#world-map').empty();
+       var modal_options = {
+           "backdrop": "static"
+       }
+       var img_hash = {};
+       img_hash = JSON.parse('<%=@img_with_loc_json.to_s.html_safe%>');
+
+       var markers = [];
+       var keys = Object.keys(img_hash);
+
+       var data = jQuery.parseJSON('<%=@img_with_loc_json.to_s.html_safe%>');
+
+       jQuery.each(data, function(i, item) {
+           var location = {
+               latLng: JSON.parse(i),
+               name: "",
+               urls: item
+           };
+
+           markers.push(location);
+       });
+
+       jQuery('#world-map').vectorMap({
+           map: 'world_mill_en',
+           scaleColors: ['#C8EEFF', '#0071A4'],
+           normalizeFunction: 'polynomial',
+           hoverOpacity: 0.7,
+           hoverColor: false,
+           markerStyle: {
+               initial: {
+                   fill: '#9172EC',
+                   stroke: '#383f47'
+               }
+           },
+           backgroundColor: '#383f47',
+           markers: markers,
+           onMarkerClick: function(e, index) {
+               jQuery('#modal-body').empty();
+               jQuery('#modal-body').html(generateImgHtml(markers[index].urls));
+               jQuery('#modal').modal(modal_options);
+               jQuery("#modal-body").justifiedGallery({
+                   'usedSuffix': 'lt240',
+                   'justifyLastRow': false,
+                   'rowHeight': 120,
+                   'fixedHeight': false,
+                   'captions': false,
+                   'margins': 1
+               });
+               jQuery('#modal-body').each(function() { // the containers for all your galleries
+                   $(this).click(function() {
+                      $('#modal').modal('hide');
+                   });
+                   jQuery(this).magnificPopup({
+                       removalDelay: 300,
+                       mainClass: 'mfp-with-zoom mfp-img-mobile',
+                       image: {
+                           verticalFit: true,
+                           titleSrc: function(item) {
+                               return item.el.attr('title');
+                           }
+                       },
+                       delegate: 'a', // the selector for gallery item
+                       type: 'image',
+                       gallery: {
+                           enabled: true
+                       },
+                       zoom: {
+                           enabled: true,
+                           duration: 300, // don't foget to change the duration also in CSS
+                           opener: function(element) {
+                               return element.find('img');
+                           }
+                       }
+                   });
+               });
+            return false;
+           }
+       });
+
+
+
+       jQuery('g circle').tooltip();
+
    });
      
 </script>
@@ -66,9 +108,8 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="title"></h4>
       </div>
-      <div class="modal-body" id="body">
-        Album Names
-        ...
+      <div class="modal-body" id="modal-body">
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

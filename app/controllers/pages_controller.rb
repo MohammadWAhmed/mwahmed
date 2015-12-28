@@ -27,20 +27,51 @@ class PagesController < ApplicationController
   end
 
   def photography
-    @images = []
-    curr_page = 1
-    @query = queryBuilder(curr_page)
-    total_pages = callF00px(@images, @query)
-    curr_page += 1
-    while(curr_page <= total_pages)
-      @query = queryBuilder(curr_page)
-      total_pages = callF00px(@images, @query)
-      curr_page += 1
-    end
+    @images = getImages()
   end
 
   def map
-    @images = []
+    @images = getImages()
+    @locations = []
+
+    # location is key 
+    @img_with_loc = {}
+    @img_html = {}
+    @images.each do |img| 
+      if !img["lat"].nil? and !img["lng"].nil?
+        @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]].nil? ? 
+        @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]] = [[img["url"], img["title"]]]:
+        @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]] += [[img["url"], img["title"]]]
+        #@img_html[[img["lat"].round(0), img["lng"].round(0)]] = htmlJustifiedGalleryBuilder(img["url"], img["title"])
+      end
+    end
+    require 'json'
+    @img_with_loc_json = @img_with_loc.to_json
+    
+  end
+
+  def htmlJustifiedGalleryBuilder(url, title) 
+    html = <<-HTML
+      <a href='#{url}' title='#{title}'
+        <img class='gallery-image' src='#{url}'/>
+      </a>
+    HTML
+    
+    return html.html_safe
+  end
+
+  def getImages()
+    images = []
+    curr_page = 1
+    query = queryBuilder(curr_page)
+    total_pages = callF00px(images, query)
+    curr_page += 1
+    while(curr_page <= total_pages)
+      query = queryBuilder(curr_page)
+      total_pages = callF00px(images, query)
+      curr_page += 1
+    end
+    return images
   end
 
   def queryBuilder(page)
@@ -56,7 +87,9 @@ class PagesController < ApplicationController
         imageHash = {}
         imageHash["url"] = p["image_url"]
         imageHash["title"] = p["name"]
-        @images << imageHash
+        imageHash["lat"] = p["latitude"]
+        imageHash["lng"] = p["longitude"]
+        images << imageHash
       end
     end
   
@@ -66,4 +99,7 @@ class PagesController < ApplicationController
   def error
     redirect_to root_path if flash.empty?
   end
+
+  private :htmlJustifiedGalleryBuilder, :getImages, :queryBuilder, :callF00px
+
 end
