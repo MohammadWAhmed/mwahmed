@@ -1,39 +1,55 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.0/jquery.justifiedGallery.min.js">
-</script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/justifiedGallery/3.6.0/css/justifiedGallery.min.css">
-
 <div id="world-map"></div>
-<script> 
+<%@img_with_loc.keys.each do |k| %>
+<button id="<%=k.join('-')%>" class="btn btn-default hidden" data-toggle="modal" data-target=".gallery-<%=k.join('-')%>">Large modal</button>
+  <div class="modal fade gallery-<%=k.join('-')%>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div id="carousel-<%=k.join('-')%>" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive" src=<%=@img_with_loc[k][0][0]%>>
+                        <div class="carousel-caption">
+                            <%=@img_with_loc[k][0][1]%>
+                        </div>
+                    </div>
+                    <%@img_with_loc[k][1..-1].each do |el| %>
+                      <div class="item">
+                          <img class="img-responsive" src=<%=el[0]%>>
+                          <div class="carousel-caption">
+                              <%=el[1]%>
+                          </div>
+                      </div>
+                    <%end%>
+                </div>
+                <a class="left carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="prev">
+                    <span class="fa fa-arrow-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="next">
+                    <span class="fa fa-arrow-right"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<%end%>
+<script type="text/javascript"> 
    jQuery(document).ready(function() {
-       function generateImgHtml(data) {
-           var html = "";
-           data.forEach(function(item) {
-               html += "<a href=" + item[0] + " title= " + "\'" + item[1] + "\'" + " <img class='galler-image' src=" + item[0] + "/> </a>"
-           });
-           return html;
-       }
-
        jQuery('#world-map').empty();
+
        var modal_options = {
            "backdrop": "static"
        }
-       var img_hash = {};
-       img_hash = JSON.parse('<%=@img_with_loc_json.to_s.html_safe%>');
-
        var markers = [];
-       var keys = Object.keys(img_hash);
 
-       var data = jQuery.parseJSON('<%=@img_with_loc_json.to_s.html_safe%>');
 
-       jQuery.each(data, function(i, item) {
-           var location = {
-               latLng: JSON.parse(i),
+       <%@img_with_loc.keys.each do |k| %>
+           var location = {               
+               latLng: [<%=k[0]%>, <%=k[1]%>],
                name: "",
-               urls: item
+               key: "<%=k.join('-')%>"
            };
-
            markers.push(location);
-       });
+       <%end%>
 
        jQuery('#world-map').vectorMap({
            map: 'world_mill_en',
@@ -50,70 +66,11 @@
            backgroundColor: '#383f47',
            markers: markers,
            onMarkerClick: function(e, index) {
-               jQuery('#modal-body').empty();
-               jQuery('#modal-body').html(generateImgHtml(markers[index].urls));
-               jQuery('#modal').modal(modal_options);
-               jQuery("#modal-body").justifiedGallery({
-                   'usedSuffix': 'lt240',
-                   'justifyLastRow': false,
-                   'rowHeight': 120,
-                   'fixedHeight': false,
-                   'captions': false,
-                   'margins': 1
-               });
-               jQuery('#modal-body').each(function() { // the containers for all your galleries
-                   $(this).click(function() {
-                      $('#modal').modal('hide');
-                   });
-                   jQuery(this).magnificPopup({
-                       removalDelay: 300,
-                       mainClass: 'mfp-with-zoom mfp-img-mobile',
-                       image: {
-                           verticalFit: true,
-                           titleSrc: function(item) {
-                               return item.el.attr('title');
-                           }
-                       },
-                       delegate: 'a', // the selector for gallery item
-                       type: 'image',
-                       gallery: {
-                           enabled: true
-                       },
-                       zoom: {
-                           enabled: true,
-                           duration: 300, // don't foget to change the duration also in CSS
-                           opener: function(element) {
-                               return element.find('img');
-                           }
-                       }
-                   });
-               });
-            return false;
+              var id = "#" + markers[index].key;
+              $(id).trigger( "click" );
            }
        });
-
-
-
        jQuery('g circle').tooltip();
-
    });
      
 </script>
-
-<!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="title"></h4>
-      </div>
-      <div class="modal-body" id="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>

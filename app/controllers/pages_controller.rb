@@ -32,32 +32,16 @@ class PagesController < ApplicationController
 
   def map
     @images = getImages()
-    @locations = []
 
     # location is key 
     @img_with_loc = {}
-    @img_html = {}
     @images.each do |img| 
       if !img["lat"].nil? and !img["lng"].nil?
         @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]].nil? ? 
         @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]] = [[img["url"], img["title"]]]:
         @img_with_loc[[img["lat"].round(0), img["lng"].round(0)]] += [[img["url"], img["title"]]]
-        #@img_html[[img["lat"].round(0), img["lng"].round(0)]] = htmlJustifiedGalleryBuilder(img["url"], img["title"])
       end
     end
-    require 'json'
-    @img_with_loc_json = @img_with_loc.to_json
-    
-  end
-
-  def htmlJustifiedGalleryBuilder(url, title) 
-    html = <<-HTML
-      <a href='#{url}' title='#{title}'
-        <img class='gallery-image' src='#{url}'/>
-      </a>
-    HTML
-    
-    return html.html_safe
   end
 
   def getImages()
@@ -100,6 +84,6 @@ class PagesController < ApplicationController
     redirect_to root_path if flash.empty?
   end
 
-  private :htmlJustifiedGalleryBuilder, :getImages, :queryBuilder, :callF00px
+  private :getImages, :queryBuilder, :callF00px
 
 end
