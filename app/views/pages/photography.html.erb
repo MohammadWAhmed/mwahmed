@@ -40,6 +40,21 @@ $(document).ready(function() {
 });
 
 </script>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Related</a>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li> <%= button_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
 <div id="gallery" >
   <% @images.each do |img| %>
     <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
