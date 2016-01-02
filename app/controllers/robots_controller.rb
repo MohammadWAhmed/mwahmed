@@ -9,17 +9,8 @@ class RobotsController < ApplicationController
   # and is performed against a canonical url or not.
   # Prevent robots from indexing content served via a CDN twice.
   def index
-    if Rails.env.production? and canonical_host?
-      render 'allow'
-    else
-      render 'disallow'
-    end
+    respond_to :text
+    expires_in 6.hours, public: true
   end
 
-  protected
-
-  def canonical_host?
-    @host_regex ||= Regexp.new(ENV['CANONICAL_HOST'])
-    request.host =~ @host_regex
-  end
 end
