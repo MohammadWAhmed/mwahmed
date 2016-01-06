@@ -2,6 +2,8 @@
 Rails.application.routes.draw do
 
   # Static pages
+  match '/projects/album_generator', to: 'projects#albums', via: :all
+  get '/projects' => 'projects#index', as: 'projects'
   get '/photography' => 'pages#photography', as: 'photography'
   get '/map' => 'pages#map', as: 'map'
   get '/contact' => 'pages#contact', as: 'contact'

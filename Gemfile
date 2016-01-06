@@ -87,6 +87,9 @@ gem 'magnific-popup-rails'
 # World map
 gem 'jvectormap-rails', '~> 1.0.0'
 
+# bit.ly
+gem 'bitly' 
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
