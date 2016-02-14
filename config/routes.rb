@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/photography' => 'pages#photography', as: 'photography'
   get '/map' => 'pages#map', as: 'map'
   get '/contact' => 'pages#contact', as: 'contact'
+  get '/about' => 'pages#about', as: 'about'
 
   get 'robots.:format' => 'robots#index'
   get "sitemap.xml" => "sitemaps#index", :format => "xml", :as => :sitemap

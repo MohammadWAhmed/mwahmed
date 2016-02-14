@@ -26,6 +26,10 @@ class PagesController < ApplicationController
     
   end
 
+  def about
+
+  end
+
   def photography
     @images = getImages()
   end
