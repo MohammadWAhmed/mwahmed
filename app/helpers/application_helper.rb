@@ -1,5 +1,4 @@
 module ApplicationHelper
-  include CommonHelper
 
   # Render a partial only one time.
   #

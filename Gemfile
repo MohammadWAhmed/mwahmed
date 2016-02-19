@@ -56,22 +56,11 @@ gem 'font-awesome-sass', '~> 4.5.0'
 # Email
 gem 'premailer-rails'
 
-# Authentication
-gem 'devise'
-gem 'cancancan', '~> 1.9'
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-# gem 'omniauth-persona'
-# gem 'omniauth-google-oauth2'
-# gem 'omniauth-linkedin'
-
 # Admin
 gem 'rails_admin'
 
 # Workers
 gem 'sidekiq'
-gem 'devise-async'
 gem 'sinatra', require: false
 
 # Utils

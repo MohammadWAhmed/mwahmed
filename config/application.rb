@@ -51,9 +51,6 @@ module Mwahmed
 
     config.assets.precompile += %w( head )
 
-    config.to_prepare do
-      Devise::Mailer.layout Rails.application.config.settings.mail.layout
-    end
   end
 end
 

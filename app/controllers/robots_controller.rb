@@ -1,8 +1,7 @@
 # http://stackoverflow.com/questions/8215132/rails-dynamic-robots-txt-with-erb
 
 class RobotsController < ApplicationController
-  skip_authorization_check
-  skip_before_action :authenticate_user!
+  
   layout false
 
   # Render a robots.txt file based on whether the request is in production
