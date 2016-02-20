@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 4.2.5.1'
 
 #
 # PLATFORM SPECIFIC
@@ -24,7 +24,7 @@ gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 
 # Data
 gem 'pg'
-gem 'dalli'                     # memcached
+# gem 'dalli'                     # memcached
 # gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 
@@ -149,7 +149,7 @@ group :test do
 end
 
 group :production do
-  gem 'memcachier'              # heroku add-on for auto config of dalli
+#  gem 'memcachier'              # heroku add-on for auto config of dalli
   gem 'unicorn'
   gem 'rails_12factor'          # https://devcenter.heroku.com/articles/rails4
   gem 'heroku-deflater'
