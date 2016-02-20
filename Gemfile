@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
-gem 'rails', '~> 4.2.5.1'
+gem 'rails', '~> 4.1.6'
 
 #
 # PLATFORM SPECIFIC
@@ -24,7 +24,7 @@ gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 
 # Data
 gem 'pg'
-# gem 'dalli'                     # memcached
+gem 'dalli'                     # memcached
 # gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
 
@@ -78,10 +78,6 @@ gem 'jvectormap-rails', '~> 1.0.0'
 
 # bit.ly
 gem 'bitly' 
-
-gem 'web-console', '~> 2.0'
-
-gem 'responders', '~> 2.0'
 
 group :development do
   # Docs
