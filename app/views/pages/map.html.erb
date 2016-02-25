@@ -1,5 +1,5 @@
 <div id="world-map"></div>
-<%@img_with_loc.keys.each do |k| %>
+<% @img_with_loc.keys.each do |k| %>
 <button id="<%=k.join('-')%>" class="btn btn-default hidden" data-toggle="modal" data-target=".gallery-<%=k.join('-')%>">Large modal</button>
   <div class="modal fade gallery-<%=k.join('-')%>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -21,12 +21,14 @@
                       </div>
                     <%end%>
                 </div>
-                <a class="left carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="prev">
-                    <span class="fa fa-long-arrow-left fa-2x"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="next">
-                    <span class="fa fa-long-arrow-right fa-2x"></span>
-                </a>
+                <% if @img_with_loc[k].size > 1 %>
+                  <a class="left carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="prev">
+                      <span class="fa fa-arrow-left fa-2x"></span>
+                  </a>
+                  <a class="right carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="next">
+                      <span class="fa fa-arrow-right fa-2x"></span>
+                  </a>
+                <% end %>
             </div>
         </div>
     </div>

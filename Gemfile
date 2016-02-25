@@ -130,6 +130,8 @@ group :development, :test do
 
   # Logging
   gem 'quiet_assets'
+
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
