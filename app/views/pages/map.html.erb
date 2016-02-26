@@ -1,38 +1,14 @@
 <div id="world-map"></div>
 <% @img_with_loc.keys.each do |k| %>
-<button id="<%=k.join('-')%>" class="btn btn-default hidden" data-toggle="modal" data-target=".gallery-<%=k.join('-')%>">Large modal</button>
-  <div class="modal fade gallery-<%=k.join('-')%>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div id="carousel-<%=k.join('-')%>" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img class="img-responsive" src=<%=@img_with_loc[k][0][0]%>>
-                        <div class="carousel-caption">
-                            <%=@img_with_loc[k][0][1]%>
-                        </div>
-                    </div>
-                    <%@img_with_loc[k][1..-1].each do |el| %>
-                      <div class="item">
-                          <img class="img-responsive" src=<%=el[0]%>>
-                          <div class="carousel-caption">
-                              <%=el[1]%>
-                          </div>
-                      </div>
-                    <%end%>
-                </div>
-                <% if @img_with_loc[k].size > 1 %>
-                  <a class="left carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="prev">
-                      <span class="fa fa-arrow-left fa-2x"></span>
-                  </a>
-                  <a class="right carousel-control" href="#carousel-<%=k.join('-')%>" role="button" data-slide="next">
-                      <span class="fa fa-arrow-right fa-2x"></span>
-                  </a>
-                <% end %>
-            </div>
-        </div>
-    </div>
-</div>
+  <div id="<%=k.join('-')%>" style="display: none;">
+      <div id="gallery-<%=k.join('-')%>">
+        <% @img_with_loc[k].each_with_index do |el, index| %>
+          <a id="img<%=k.join('-')%><%=index%>" href="<%=el[0]%>"  title="<%=el[1]%>">
+            <img class="galler-image" src=<%=el[0]%>/>
+          </a>
+        <% end %> 
+      </div>
+  </div>  
 <%end%>
 <script type="text/javascript"> 
    jQuery(document).ready(function() {
@@ -45,12 +21,12 @@
 
 
        <%@img_with_loc.keys.each do |k| %>
-           var location = {               
-               latLng: [<%=k[0]%>, <%=k[1]%>],
-               name: "",
-               key: "<%=k.join('-')%>"
-           };
-           markers.push(location);
+       var location = {
+           latLng: [<%=k[0]%>, <%=k[1]%>],
+           name: "",
+           key: "<%=k.join('-')%>"
+       };
+       markers.push(location);
        <%end%>
 
        jQuery('#world-map').vectorMap({
@@ -68,8 +44,34 @@
            backgroundColor: '#383f47',
            markers: markers,
            onMarkerClick: function(e, index) {
-              var id = "#" + markers[index].key;
-              $(id).trigger( "click" );
+               var galleryId = "#gallery-" + markers[index].key;
+               var imgId = "#img" + markers[index].key + "0";
+               $(galleryId).each(function() {
+                   $(this).magnificPopup({
+                       removalDelay: 300,
+                       mainClass: 'mfp-with-zoom mfp-img-mobile',
+                       image: {
+                           verticalFit: true,
+                           titleSrc: function(item) {
+                               return item.el.attr('title');
+                           }
+                       },
+                       delegate: 'a',
+                       type: 'image',
+                       gallery: {
+                           enabled: true
+                       },
+                       zoom: {
+                           enabled: true,
+                           duration: 300,
+                           opener: function(element) {
+                               return element.find('img');
+                           }
+                       }
+                   });
+               });
+               $(imgId).trigger('click');
+               
            }
        });
        jQuery('g circle').tooltip();
