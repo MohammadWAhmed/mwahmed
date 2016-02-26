@@ -1,9 +1,10 @@
 // Page footer
 
 .page__footer {
-  margin-top: 5%;
-  text-align: center;
-
+  text-align: right;
+  p {
+    padding-right: 20px;
+  }
   ul {
     @extend .list-unstyled;
     margin: 0;
