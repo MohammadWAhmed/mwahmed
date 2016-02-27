@@ -79,6 +79,9 @@ gem 'jvectormap-rails', '~> 1.0.0'
 # bit.ly
 gem 'bitly' 
 
+# Contact mailer
+gem 'mail_form'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails

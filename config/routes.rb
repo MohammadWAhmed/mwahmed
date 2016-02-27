@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   get 'robots.:format' => 'robots#index'
   get "sitemap.xml" => "sitemaps#index", :format => "xml", :as => :sitemap
   root 'pages#home'
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
 end
