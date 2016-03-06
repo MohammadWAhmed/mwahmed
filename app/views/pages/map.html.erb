@@ -1,3 +1,5 @@
+<h1> Images classified by location</h1>
+<p> Click on a marker to start a slideshow of images taken nearby that particular location. Scroll accordingly to access zoom features of the map </p>
 <div id="world-map"></div>
 <% @img_with_loc.keys.each do |k| %>
   <div id="<%=k.join('-')%>" style="display: none;">
@@ -34,14 +36,14 @@
            scaleColors: ['#C8EEFF', '#0071A4'],
            normalizeFunction: 'polynomial',
            hoverOpacity: 0.7,
-           hoverColor: false,
+           hoverColor: true,
            markerStyle: {
                initial: {
-                   fill: '#9172EC',
-                   stroke: '#383f47'
+                   fill: '#3EA055',
+                   stroke: '#000'
                }
            },
-           backgroundColor: '#383f47',
+           backgroundColor: '#566D7E',
            markers: markers,
            onMarkerClick: function(e, index) {
                var galleryId = "#gallery-" + markers[index].key;

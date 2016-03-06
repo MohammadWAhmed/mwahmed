@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   match '/projects/album_generator', to: 'projects#albums', via: :all
   get '/projects' => 'projects#index', as: 'projects'
   get '/photography' => 'pages#photography', as: 'photography'
-  get '/map' => 'pages#map', as: 'map'
+  get '/map' => 'pages#map', as: 'map', via: :get
   get '/contact' => 'pages#contact', as: 'contact'
   get '/about' => 'pages#about', as: 'about'
 
