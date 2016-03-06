@@ -46,12 +46,14 @@ var disqus_shortname = 'mwahmed';
 
 <%= button_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%>
 
-<div id="gallery" >
-  <% @images.each do |img| %>
-    <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
-        <img class="galler-image" src=<%=img["url"] %>/>
-    </a>
-  <% end %> 
+<div class="container fluid">
+  <div id="gallery" >
+    <% @images.each do |img| %>
+      <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
+          <img class="galler-image" src=<%=img["url"] %>/>
+      </a>
+    <% end %> 
+  </div>
+  <div class='disqus' id='disqus_thread'></div>
+  <script id="dsq-count-scr" src="//mwahmed.disqus.com/count.js" async></script>
 </div>
-<div class='disqus' id='disqus_thread'></div>
-<script id="dsq-count-scr" src="//mwahmed.disqus.com/count.js" async></script>
