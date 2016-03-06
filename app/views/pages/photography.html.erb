@@ -17,8 +17,7 @@ $(document).ready(function() {
         image: {
           verticalFit: true,
           titleSrc: function(item) {
-          
-            return item.el.attr('title') + "<br /> <div class='disqus' id='disqus_thread'></div>";
+            return item.el.attr('title');
           }
         },
         delegate: 'a', 
