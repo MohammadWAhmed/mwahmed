@@ -1,5 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function() {
+
   $("#gallery").justifiedGallery({
         'usedSuffix': 'lt240',
         'justifyLastRow': false,
@@ -16,7 +17,8 @@ $(document).ready(function() {
         image: {
           verticalFit: true,
           titleSrc: function(item) {
-            return item.el.attr('title');
+          
+            return item.el.attr('title') + "<br /> <div class='disqus' id='disqus_thread'></div>";
           }
         },
         delegate: 'a', 
@@ -34,8 +36,14 @@ $(document).ready(function() {
     });
   });
 });
-
+var disqus_shortname = 'mwahmed';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 <%= button_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%>
 
@@ -46,3 +54,5 @@ $(document).ready(function() {
     </a>
   <% end %> 
 </div>
+<div class='disqus' id='disqus_thread'></div>
+<script id="dsq-count-scr" src="//mwahmed.disqus.com/count.js" async></script>
