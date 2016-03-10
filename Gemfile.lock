@@ -82,6 +82,7 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
+    disqus_rails (0.0.6)
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -371,6 +372,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails
   database_cleaner
+  disqus_rails
   f00px
   factory_girl_rails
   ffaker

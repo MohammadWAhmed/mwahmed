@@ -79,6 +79,9 @@ gem 'jvectormap-rails', '~> 1.0.0'
 # bit.ly
 gem 'bitly' 
 
+# Disqus threads
+gem 'disqus_rails'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails
