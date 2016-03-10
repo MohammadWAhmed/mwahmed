@@ -82,6 +82,9 @@ gem 'bitly'
 # Disqus threads
 gem 'disqus_rails'
 
+# pagination
+gem 'kaminari'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails

@@ -384,6 +384,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jvectormap-rails (~> 1.0.0)
+  kaminari
   magnific-popup-rails
   minitest
   newrelic_rpm
