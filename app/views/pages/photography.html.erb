@@ -3,9 +3,9 @@
 $(document).ready(function() {
 
   $("#gallery").justifiedGallery({
-        'usedSuffix': 'lt240',
+        'usedSuffix': 'lt140',
         'justifyLastRow': false,
-        'rowHeight': 180,
+        'rowHeight': 200,
         'fixedHeight': false,
         'captions': false,
         'margins': 1
@@ -46,5 +46,6 @@ $(document).ready(function() {
       </a>
     <% end %> 
   </div>
+  <%= paginate @images %>
   <%- disqus_thread "mwahmed", "mwahmed/photography"%>
 </div>

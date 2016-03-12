@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   end
 
   def photography
-    @images = getImages()
+    @images = Kaminari.paginate_array(getImages()).page(params[:page]).per(12)
   end
 
   def map
