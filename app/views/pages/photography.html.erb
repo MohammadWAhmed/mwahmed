@@ -37,7 +37,7 @@ $(document).ready(function() {
   });
 });
 </script>
-<%= button_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%>
+<%= link_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%>
 <div class="container fluid">
   <div id="gallery" >
     <% @images.each do |img| %>
@@ -46,6 +46,8 @@ $(document).ready(function() {
       </a>
     <% end %> 
   </div>
-  <%= paginate @images %>
+  <div class="text-center"> 
+    <%= paginate @images %>
+  </div>
   <%- disqus_thread "mwahmed", "mwahmed/photography"%>
 </div>
