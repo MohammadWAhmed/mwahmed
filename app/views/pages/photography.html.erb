@@ -48,6 +48,7 @@ $(document).ready(function() {
   </div>
   <div class="text-center"> 
     <%= paginate @images %>
+    <%= social_share_button_tag() %> 
   </div>
   <%- disqus_thread "mwahmed", "mwahmed/photography"%>
 </div>

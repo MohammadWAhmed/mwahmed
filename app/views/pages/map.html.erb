@@ -1,7 +1,8 @@
 <h1> Images classified by location</h1>
 <p> Click on a marker to start a slideshow of images taken nearby that particular location. Scroll accordingly to access zoom features of the map </p>
+<%= social_share_button_tag() %> 
 <div id="world-map"></div>
-<% @img_with_loc.keys.each do |k| %>
+<% @img_with_loc.keys.each do |k| %>  
   <div id="<%=k.join('-')%>" style="display: none;">
       <div id="gallery-<%=k.join('-')%>">
         <% @img_with_loc[k].each_with_index do |el, index| %>

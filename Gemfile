@@ -85,6 +85,9 @@ gem 'disqus_rails'
 # pagination
 gem 'kaminari'
 
+# Social links
+gem 'social-share-button'
+
 group :development do
   # Docs
   gem 'sdoc', require: false    # bundle exec rake doc:rails

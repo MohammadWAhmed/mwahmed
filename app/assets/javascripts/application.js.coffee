@@ -21,6 +21,7 @@
 #= require magnific-popup
 #= require justifiedGallery
 #= require disqus_rails
+#= require social-share-button
 
 # Add error class to .avatar images if they fail to load
 # See avatar.scss and _avatar.html.haml
