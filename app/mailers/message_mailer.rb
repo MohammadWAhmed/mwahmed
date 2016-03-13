@@ -4,7 +4,7 @@ class MessageMailer < ActionMailer::Base
 
   def new_message(message)
     @message = message
-    mail( :to => "wasiuddin.ahmed@hotmail.com",
+    mail( :to => ENV['EMAIL'],
     :subject => "MWAhmed contact from #{message.name}" )
   end
 
