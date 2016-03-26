@@ -379,7 +379,7 @@ DEPENDENCIES
   f00px
   factory_girl_rails
   ffaker
-  font-awesome-sass (~> 4.5.0)
+  font-awesome-sass
   guard-rspec
   haml-rails
   headjs-rails

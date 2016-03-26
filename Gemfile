@@ -48,7 +48,7 @@ gem 'coffee-rails'
 
 # Design
 gem 'bootstrap-sass'
-gem 'font-awesome-sass', '~> 4.5.0'
+gem 'font-awesome-sass'
 # gem 'bourbon'
 # gem 'neat'
 # gem 'country_select'
