@@ -9,7 +9,11 @@
 
   .collapse.navbar-collapse
     %ul.nav.navbar-nav.navbar-right
-      %li= link_to 'Photography', photography_path
+      %li.dropdown
+        %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Interests
+          %span.caret
+        %ul.dropdown-menu
+          %li= link_to 'Photography', photography_path
       %li= link_to 'About', about_path
       %li= link_to 'Contact', contact_path
-      
