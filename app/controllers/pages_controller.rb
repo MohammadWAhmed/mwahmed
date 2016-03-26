@@ -8,10 +8,12 @@ class PagesController < ApplicationController
   end
 
   def about
-
+    @title = "About"
   end
 
   def photography
+    @title = "Photography"
+    @curr_page = params[:page]
     @images = Kaminari.paginate_array(getImages()).page(params[:page]).per(12)
   end
 

@@ -39,6 +39,10 @@ $(document).ready(function() {
 </script>
 <%= link_to "Map view", map_path, :class => "btn btn-default navbar-btn", :method => "get"%>
 <div class="container fluid">
+  <h1> Photography </h1>
+  <% if @curr_page.nil? %>
+    <p> </p>
+  <% end %> 
   <div id="gallery" >
     <% @images.each do |img| %>
       <a href=<%=img["url"] %>  title='<%=img["title"] %>'>

@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def new
+    @title = "Contact"
     @message = Message.new
   end
 

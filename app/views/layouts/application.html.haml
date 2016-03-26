@@ -3,7 +3,7 @@
   %head
     %meta{charset: "utf-8"}/
     %meta{content: 'width=device-width, initial-scale=1.0', name: 'viewport'}
-    %title= content_for?(:title) ? yield(:title) : "MWAhmed"
+    %title= @title.blank? ? "MWAhmed" : @title
     %meta{content: (content_for?(:description) ? yield(:description) : I18n.t('brand.name')), name: 'description'}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     /[if lt IE 9]
