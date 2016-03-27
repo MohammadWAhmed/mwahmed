@@ -39,10 +39,24 @@
            hoverOpacity: 0.7,
            hoverColor: true,
            markerStyle: {
-               initial: {
-                   fill: '#3EA055',
-                   stroke: '#000'
-               }
+              initial: {
+                fill: '#3EA055',
+                stroke: '#505050',
+                "fill-opacity": 2,
+                "stroke-width": 2,
+                "stroke-opacity": 2,
+                r: 5
+              },
+              hover: {
+                stroke: 'black',
+                "stroke-width": 2,
+                cursor: 'pointer'
+              },
+              selected: {
+                fill: 'blue'
+              },
+              selectedHover: {
+              }
            },
            backgroundColor: '#566D7E',
            markers: markers,
