@@ -325,5 +325,22 @@ html, body {
 }
 
 .btn-custom {
-    background-color: #D1D0CE;
+    background-color: #000000;
+}
+
+a.btn-custom:link { color:#FFF; text-decoration:none; font-weight:normal; }
+a.btn-custom:visited { color: #FFF; text-decoration:none; font-weight:normal; }
+a.btn-custom:hover { color: #488AC7; text-decoration:none; font-weight:normal; }
+a.btn-custom:active { color: #FFF; text-decoration:none; font-weight:normal; }
+
+
+
+.ibm {
+    font-size: 5em;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }

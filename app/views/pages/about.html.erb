@@ -1,107 +1,38 @@
 <div class="container">
-    <div class="page-header">
-        <h1> Hi there, I'm <strong> Mohammad </strong> </h1> 
-        <p> I am a Software Engineer based in Toronto, Canada. I am currently working with large scale distributed systems at Amazon. I have a bachelors in Computer Engineering from University of Toronto. In my spare time I like traveling and hacking away with new technologies. </p>
+  <h1> Hi there, I'm <strong> Mohammad </strong> </h1> 
+   <p> I grew up in India and now live in Toronto, Canada. I currently work as a Software Development Engineer at Amazon.com</p>
+   <p>I have a bachelors degree in Computer Engineering from University of Toronto </p> 
 
-        <p> I am also an amateur photographer and I have been putting my Canon T3 to good use for some time now.</p>
-    </div>
-
-    <ul class="timeline">
-        <li>
-          <div class="timeline-badge info"><%=Time.now.year%></div>
-          <br /><br /><br />
-        </li>
-        <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Software Development Engineer, Amazon</h4>
-              <h5> <%=icon('calendar')%> May 2014 - Present <br/ > <%=icon('map-marker')%> Toronto, Canada</h5>
-            </div>
-            <div class="timeline-body">
-            	<ul> 
-                <li> Design and Implement large-scale, low latency services </li>
-                <li> Java development </li>
-                <li> Think Big winner, FBA Hackathon 2014 at Amazon Toronto </li>
-            	</ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info">2014</div>
-          <br /><br /><br />
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title"> <%=icon('graduation-cap') %> B.A.S.c Computer Engineering, University of Toronto</h4>
-              <h5> <%=icon('calendar')%> September 2009 - June 2014 <br/ > <%=icon('map-marker')%> Toronto, Canada</h5>
-            </div>
-            <div class="timeline-body">
-              <ul> 
-                <li> Dean’s Honors List, Bachelor of Applied Science & Engineering at University of Toronto </li>
-              </ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Student on Call, IBM</h4>
-              <h5> <%=icon('calendar')%> September 2013 - April 2014 <br/ > <%=icon('map-marker')%> Markham, Canada</h5>
-            </div>
-            <div class="timeline-body">
-            	<ul> 
-            		<li> Fullstack Ruby on Rails developer </li>
-            	</ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info">2013</div>
-          <br /><br /><br />
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Technical Enablement Specialist Intern, IBM</h4>
-              <h5> <%=icon('calendar')%> May 2012 - August 2013 <br/ > <%=icon('map-marker')%> Markham, Canada</h5>
-            </div>
-            <div class="timeline-body">
-              	<ul> 
-                <li> Fullstack Ruby on Rails developer </li>
-                <li> Assisted with logistics for the Hands On Lab program of IBM’s biggest conference </li>
-                <li> IBM Canada Tech Challenge 2013 - 1st Place in Design Case Competition </li>
-            	</ul>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info">2012</div>
-          <br /><br /><br />
-        </li>
-        <li>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Design Center Supervisor, University Of Toronto</h4>
-              <h5> <%=icon('calendar')%> January 2012 - April 2012 <br/ > <%=icon('map-marker')%> Toronto, Canada</h5>
-            </div>
-            <div class="timeline-body">
-            </div>
-          </div>
-        </li>        
-        <li>
-          <div class="timeline-badge info">2009</div>
-          <br /><br /><br />
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">High School, IEA</h4>
-              <h5> <%=icon('calendar')%> 2009 <br/ > <%=icon('map-marker')%> Hyderabad, India</h5>              
-            </div>
-            <div class="timeline-body">
-            </div>
-          </div>
-        </li>
-    </ul>
-</div>
+   <p> In my spare time I like traveling and hacking away with new technologies. I am also an amateur photographer and I have been putting my Canon T3 to good use for some time now. </p>
+  <hr>
+  <h1>Work Experience</h1>
+  <h2>Software Development Engineer, <%= icon('amazon') %></h2> 
+  <p> <%=icon('calendar')%> May 2014 - Present | <%=icon('map-marker')%> Toronto, Canada</p>
+  <ul> 
+    <li> Design, develop and maintain large-scale, low latency services  </li>
+  </ul>
+  <hr>
+  <h2> Student On Call, <%= image_tag('IBM.svg', size: "30x30")%> </h2>
+  <p> <%=icon('calendar')%> September 2013 - April 2014 | <%=icon('map-marker')%> Markham, Canada</p>  
+  <ul> 
+    <li> Fullstack Ruby on Rails developer  </li>
+  </ul>
+  <hr>  
+  <h2> Technical Enablement Specialist Intern, <%= image_tag('IBM.svg', size: "30x30")%> </h2>
+  <p> <%=icon('calendar')%> May 2012 - August 2013 | <%=icon('map-marker')%> Markham, Canada</p>
+  <ul> 
+    <li> Fullstack Ruby on Rails developer </li>
+  </ul>
+  <hr>
+  <h2> Design Center Supervisor, University Of Toronto </h2>
+  <p> <%=icon('calendar')%> January 2012 - April 2012 | <%=icon('map-marker')%> Toronto, Canada</p>
+  <hr>
+  <h1>Education</h1>
+  <h2> <%=icon('graduation-cap') %> BASc Computer Engineering, University of Toronto</h2>
+  <p> <%=icon('calendar')%> September 2009 - June 2014 | <%=icon('map-marker')%> Toronto, Canada</p>
+  <ul> 
+    <li> Dean’s Honors List, Bachelor of Applied Science & Engineering at University of Toronto 2014 </li>
+  </ul>
+  <hr>
+  <h2> High School, International Educational Academy </h2>
+  <p> <%=icon('calendar')%> 2009 | <%=icon('map-marker')%> Hyderabad, India</p>
