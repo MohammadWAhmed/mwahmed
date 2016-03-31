@@ -71,6 +71,15 @@ class PagesController < ApplicationController
     redirect_to root_path if flash.empty?
   end
 
+  def date
+    @now = Time.now
+    @end = Time.new(2016,5,19)
+
+    @diff_in_sec = @end - @now
+    @days = (@diff_in_sec/86400).round(2)
+    @week_sub = ((@days/7).round)*2
+  end
+
   private :getImages, :queryBuilder, :callF00px
 
 end

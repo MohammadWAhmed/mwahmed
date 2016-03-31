@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/photography' => 'pages#photography', as: 'photography'
   get '/map' => 'pages#map', as: 'map', via: :get
   get '/about' => 'pages#about', as: 'about'
+
+  get '/t' => 'pages#date', as: 'date'
   
   get 'contact', to: 'messages#new', as: 'contact'
   post 'contact', to: 'messages#create'
