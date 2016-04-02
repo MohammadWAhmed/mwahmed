@@ -43,6 +43,9 @@ $(document).ready(function() {
     <h1> Photography </h1>
     <p>I do photography as a hobby and put some of the popular ones here. </p>
     <p>I shoot with Canon EOS Rebel T3, EF-S 18-55mm, EF-S 55-250mm.</p>
+  <div class="text-right"> 
+    <%= paginate @images %>
+  </div>
   <div id="gallery" >
     <% @images.each do |img| %>
       <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
@@ -50,7 +53,7 @@ $(document).ready(function() {
       </a>
     <% end %> 
   </div>
-  <div class="text-center"> 
+  <div class="text-right"> 
     <%= paginate @images %>
     <%= social_share_button_tag() %> 
   </div>
