@@ -48,7 +48,7 @@ $(document).ready(function() {
   </div>
   <div id="gallery" >
     <% @images.each do |img| %>
-      <a href=<%=img["url"] %>  title='<%=img["title"] %>'>
+      <a href=<%=img["url"] %>  alt='<%=img["title"] %>' title='<%=img["title"] %>'>
           <img class="galler-image" src=<%=img["url"] %>/>
       </a>
     <% end %> 
