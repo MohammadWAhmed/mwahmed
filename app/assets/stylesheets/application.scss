@@ -344,3 +344,13 @@ a.btn-custom:active { color: #FFF; text-decoration:none; font-weight:normal; }
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+#home-about {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    color: #000;
+    font: normal 27px/32px 'OFL Sorts Mill Goudy','OFL Sorts Mill Goudy TT',serif;
+    line-height: 2em;
+    width:50%;
+}
