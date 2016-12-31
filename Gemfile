@@ -23,7 +23,6 @@ gem 'airbrake', '~> 3.2.1'         # use with airbrake.io or errbit
 # gem 'rack-google-analytics'
 
 # Data
-gem 'pg'
 # gem 'dalli'                     # memcached
 # gem 'schema_plus'             # add better index and foreign key support
 # gem 'jbuilder'
@@ -78,9 +77,6 @@ gem 'jvectormap-rails', '~> 1.0.0'
 
 # bit.ly
 gem 'bitly' 
-
-# Disqus threads
-gem 'disqus_rails'
 
 # pagination
 gem 'kaminari'

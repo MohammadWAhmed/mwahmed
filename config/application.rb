@@ -2,7 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
 require "active_model/railtie"
-require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
@@ -17,8 +16,6 @@ Bundler.require(*Rails.groups)
 
 module Mwahmed
   class Application < Rails::Application
-    # Use sql instead of ruby to support case insensitive indices for postgres
-    config.active_record.schema_format = :sql
 
     # Cache
     # config.cache_store = :memory_store

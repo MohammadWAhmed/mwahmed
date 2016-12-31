@@ -20,7 +20,6 @@
 #= require jvectormap/maps/world_mill_en
 #= require magnific-popup
 #= require justifiedGallery
-#= require disqus_rails
 #= require social-share-button
 
 # Add error class to .avatar images if they fail to load
