@@ -4,7 +4,9 @@ $(document).ready(function() {
   $('.galler-image').each(
     function(){
         var src = $(this).attr('src');
-        this.src = src.slice(0,-1);
+        if (src.slice(-1) == "/") {
+          this.src = src.slice(0,-1);  
+        }
   });
 
   $("#gallery").justifiedGallery({
