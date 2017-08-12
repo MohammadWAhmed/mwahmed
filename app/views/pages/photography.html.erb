@@ -1,5 +1,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
+  
+  $('.galler-image').each(
+    function(){
+        var src = $(this).attr('src');
+        this.src = src.slice(0,-1);
+  });
 
   $("#gallery").justifiedGallery({
         'usedSuffix': 'lt240',
@@ -20,7 +26,7 @@ $(document).ready(function() {
             return item.el.attr('title');
           }
         },
-        delegate: 'a', 
+        delegate: 'a',
         type: 'image',
         gallery: {
           enabled:true
@@ -34,11 +40,13 @@ $(document).ready(function() {
         }
     });
   });
+
 });
 </script>
 <pre> Related: <%= link_to "Map view", map_path, :class => "btn btn-custom"%></pre> 
 
 <div class="container fluid"> 
+    
     <h1> Photography </h1>
     <p>I do photography as a hobby and put some of the popular ones here. </p>
     <p>I shoot with Canon EOS Rebel T3, EF-S 18-55mm, EF-S 55-250mm.</p>
@@ -48,7 +56,7 @@ $(document).ready(function() {
   <div id="gallery" >
     <% @images.each do |img| %>
       <a href=<%=img["url"] %>  alt='<%=img["title"] %>' title='<%=img["title"] %>'>
-          <img class="galler-image" src=<%=img["url"] %>/>
+          <img class="galler-image" src=<%== img["url"] %>/>
       </a>
     <% end %> 
   </div>
