@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   # Must appear before other rescue_from statements.
   rescue_from Exception, with: :handle_uncaught_exception
 
+  $copyright_year = Time.now.year
+
   protected
 
   # Reset response so redirect or render can be called again.
